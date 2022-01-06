@@ -37,5 +37,17 @@ function wordFrequency() {
     };
     // Sort the words by most frequently occurring to least frequently occurring
     let sortedWords = sortableWords.sort((a, b) => a[1] - b[1]).reverse();
-    console.log(sortedWords);
+    // Get a handle on the div to output words into
+    let outputContainer = document.getElementById("output-container");
+    // Create an unordered list in the DOM to output the sorted words into
+    const sortedList = document.createElement("ul");
+    // Put all the words and their frequencies into list items in sortedList
+    sortedWords.forEach((word) => {
+        let listedWord = document.createElement("li")
+        listedWord.innerText = `${word[0]} : ${word[1]}`
+        sortedList.appendChild(listedWord);
+    });
+    // Put sortedWords into the div in the DOM
+    outputContainer.appendChild(sortedList);
+
 }
