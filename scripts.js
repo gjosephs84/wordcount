@@ -1,14 +1,22 @@
 function cleanArray() {
     // Get the text from the DOM
-    let wordString = document.getElementById("text-input").value.toLowerCase();
+    let lineBreaks = /\n/g;
+    let wordString = document.getElementById("text-input").value.toLowerCase().replace(lineBreaks, " ");
+    //wordString = wordString.replace(lineBreaks, " ");
+    console.log(wordString);
     // Split the text into an array at the spaces
+    let dirtiestArray = [... wordString.split(/\n/)];
+    console.log(dirtiestArray);
     let dirtyArray = wordString.split(" ");
     // Initialize a new array to hold the cleaned-up words
     let clean = [];
     // Remove all punctuation and add words to the new clean array
     dirtyArray.forEach(element => {
-        let cleanWord = element.replace(",", "").replace("'","").replace(".","").replace("?","").replace("!","");
-        clean.push(cleanWord);
+        let lineBreaks = /\n/g;
+        let cleanWord = element.replace(",", "").replace("'","").replace(".","").replace("?","").replace("!","").replace("\"", "").replace(lineBreaks, "");
+            // As long as a word isn't blank, add it to the array
+            if (cleanWord != "") {
+            clean.push(cleanWord)};
     });
     // Return the array of cleaned words
     return clean;
@@ -35,6 +43,7 @@ function wordFrequency() {
     for (let word in words) {
         sortableWords.push([word, words[word]]);
     };
+    console.log(sortableWords);
     // Sort the words by most frequently occurring to least frequently occurring
     let sortedWords = sortableWords.sort((a, b) => a[1] - b[1]).reverse();
     // Get a handle on the div to output words into
