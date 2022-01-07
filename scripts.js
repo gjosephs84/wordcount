@@ -48,15 +48,27 @@ function wordFrequency() {
     let sortedWords = sortableWords.sort((a, b) => a[1] - b[1]).reverse();
     // Get a handle on the div to output words into
     let outputContainer = document.getElementById("output-container");
-    // Create an unordered list in the DOM to output the sorted words into
-    const sortedList = document.createElement("ul");
-    // Put all the words and their frequencies into list items in sortedList
+    let classCount = 1;
+    const countWidth = 250 / sortedWords[0][1];
     sortedWords.forEach((word) => {
-        let listedWord = document.createElement("li")
-        listedWord.innerText = `${word[0]} : ${word[1]}`
-        sortedList.appendChild(listedWord);
+        let listedWord = document.createElement("div")
+        listedWord.innerText = word[0];
+        let listedCount = document.createElement("div");
+        listedCount.innerText = word[1];
+        let countBar = document.createElement("div");
+        let barWidth = countWidth * word[1];
+        countBar.style=`width: ${barWidth}px;`;
+        countBar.className="bar";
+        if (classCount % 2 == 0) {
+            listedWord.className="word even";
+            listedCount.className="count even";
+        } else {
+            listedWord.className="word odd"
+            listedCount.className="count odd"
+        }
+        classCount++;
+        outputContainer.appendChild(listedWord);
+        outputContainer.appendChild(listedCount);
+        outputContainer.appendChild(countBar);
     });
-    // Put sortedWords into the div in the DOM
-    outputContainer.appendChild(sortedList);
-
 }
