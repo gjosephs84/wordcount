@@ -1,4 +1,4 @@
-#output-container {
+.output-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     width: 500px;
@@ -35,6 +35,11 @@ div.odd.word:nth-of-type(odd) {
 div.odd.count:nth-of-type(even) {
     background-color: rgb(156, 211, 224);
 }
+.frequency {
+    grid-column-start: 3;
+    grid-column-end: 6;
+    text-align: center;
+}
 .bar {
     grid-column-start: 3;
     grid-column-end: 6;
@@ -46,4 +51,7 @@ div.odd.count:nth-of-type(even) {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     align-self: center;
+}
+.invisible {
+    display: none;
 }

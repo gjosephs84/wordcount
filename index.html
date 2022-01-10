@@ -4,11 +4,18 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <textarea id="text-input" placeholder="Enter some text" style="width: 500px; height: 200px;"></textarea>
-    <br>
-    <button id="text-button" onclick="wordFrequency()">Get Word Stats</button>
-    <br>
-    <div id="output-container" style="width: 500px; height: 500px;"></div>
+    <div style="margin: auto; border-style: hidden; max-width: min-content;">
+        <textarea id="text-input" placeholder="Enter some text" style="width: 500px; height: 200px;"></textarea>
+        <br>
+        <button id="text-button" onclick="wordFrequency()">Get Word Stats</button>
+        <br>
+        <div class="invisible" id="labels">
+            <div class="word">Word</div>
+            <div class="occurrences">Occurrences</div>
+            <div class="frequency">Frequency</div>
+        </div>
+        <div class="output-container" id="output-container" style="width: 500px; height: 500px;"></div>
+    </div>
 </body>
 <script src="scripts.js"></script>
 </html>

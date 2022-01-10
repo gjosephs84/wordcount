@@ -71,4 +71,6 @@ function wordFrequency() {
         outputContainer.appendChild(listedCount);
         outputContainer.appendChild(countBar);
     });
+    let labels = document.getElementById("labels");
+    labels.className="output-container";
 }
